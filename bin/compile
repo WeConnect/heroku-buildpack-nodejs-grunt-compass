@@ -141,11 +141,13 @@ mkdir -p $build_dir/.profile.d
 echo "export PATH=\"\$HOME/vendor/node/bin:\$HOME/bin:\$HOME/node_modules/.bin:\$PATH\";" > $build_dir/.profile.d/nodejs.sh
 
 # install compass
-status "Installing Compass"
-export GEM_HOME=$cache_dir/ruby/.gem/ruby/2.2.0
-PATH="$GEM_HOME/bin:$PATH"
-mkdir -p $cache_dir/ruby
-HOME="$cache_dir/ruby" gem install compass --user-install --no-rdoc --no-ri
+# NOTE: we want to install compass through Gemfile. Checkout Gemfile in SpaceStation
+
+#status "Installing Compass"
+#export GEM_HOME=$cache_dir/ruby/.gem/ruby/2.2.0
+#PATH="$GEM_HOME/bin:$PATH"
+#mkdir -p $cache_dir/ruby
+#HOME="$cache_dir/ruby" gem install compass --user-install --no-rdoc --no-ri
 
 # run grunt
 if [ -f $build_dir/grunt.js ] || [ -f $build_dir/Gruntfile.js ] || [ -f $build_dir/Gruntfile.coffee ]; then
